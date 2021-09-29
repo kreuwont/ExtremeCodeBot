@@ -8,7 +8,15 @@
         "ASPNETCORE_ENVIRONMENT": "Development",
         
         "BOTSETTINGS__BOTTOKEN": "",
-        "BOTSETTINGS__WEBHOOKURL": ""
+        "BOTSETTINGS__WEBHOOKURL": "",
+        
+        "DBSETTINGS__DBHOST": "",
+        "DBSETTINGS__DBPORT": "",
+        "DBSETTINGS__DBNAME": "",
+        "DBSETTINGS__DBUSER": "",
+        "DBSETTINGS__DBPASSWORD": "",
+        "DBSETTINGS__DBSCHEMA": "",
+        "DBSETTINGS__DBMAXPOOLSIZE": ""
       }
     }
   }
