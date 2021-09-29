@@ -1,0 +1,15 @@
+﻿{
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "ExtremeCodeBot": {
+      "commandName": "Project",
+      "dotnetRunMessages": "true",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        
+        "BOTSETTINGS__BOTTOKEN": "",
+        "BOTSETTINGS__WEBHOOKURL": ""
+      }
+    }
+  }
+}
