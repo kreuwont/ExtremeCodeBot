@@ -6,6 +6,7 @@ using ExtremeCodeBot.Infrastructure.Helpers;
 using ExtremeCodeBot.Infrastructure.Settings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -36,12 +37,10 @@ namespace ExtremeCodeBot
             });
 
             services.Configure<DbSettings>(Configuration.GetSection("DbSettings"));
-
-            services.AddScoped(provider =>
+            services.AddDbContext<DefaultDbContext>((provider, options) =>
             {
                 var dbSettings = provider.GetRequiredService<IOptions<DbSettings>>();
-                var connectionString = ConnectionStringHelper.GetConnectionString(dbSettings.Value);
-                return new DefaultDbContext(connectionString);
+                options.UseNpgsql(DbSettings.GetConnectionString(dbSettings.Value));
             });
         }
 
