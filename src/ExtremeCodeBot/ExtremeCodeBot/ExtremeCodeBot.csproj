@@ -13,4 +13,8 @@
         <PackageReference Include="Telegram.Bot" Version="16.0.2" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\ExtremeCodeBot.Infrastructure\ExtremeCodeBot.Infrastructure.csproj" />
+    </ItemGroup>
+
 </Project>
