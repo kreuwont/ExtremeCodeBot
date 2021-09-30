@@ -1,22 +1,24 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ExtremeCodeBot.Domain.Aggregates.ClientAggregate;
 
 namespace ExtremeCodeBot.Domain.Aggregates.WalletAggregate
 {
     public class Wallet
     {
         public virtual Guid Id { get; private set; }
-        
+
         public virtual long Balance { get; private set; }
-        
+
         public virtual Guid? LastTransactionId { get; private set; }
 
         public virtual IReadOnlyCollection<Transaction> Transactions { get; private set; }
-        
+
         public virtual IReadOnlyCollection<MoneyPool> MoneyPools { get; private set; }
 
-        public Wallet(long balance, Guid? lastTransactionId, IEnumerable<Transaction> transactions, IEnumerable<MoneyPool> moneyPools)
+        public Wallet(long balance, Guid? lastTransactionId, IEnumerable<Transaction> transactions,
+            IEnumerable<MoneyPool> moneyPools)
         {
             var transactionList = transactions?.ToList();
             var moneyPoolsList = moneyPools?.ToList();
@@ -31,14 +33,16 @@ namespace ExtremeCodeBot.Domain.Aggregates.WalletAggregate
         /// <summary>
         /// For EF
         /// </summary>
-        protected Wallet() {}
+        protected Wallet()
+        {
+        }
 
         /// <summary>
         /// Фабрика
         /// </summary>
         public static Wallet Create()
         {
-            return new Wallet(0, 
+            return new Wallet(0,
                 null,
                 Enumerable.Empty<Transaction>(),
                 Enumerable.Empty<MoneyPool>());
