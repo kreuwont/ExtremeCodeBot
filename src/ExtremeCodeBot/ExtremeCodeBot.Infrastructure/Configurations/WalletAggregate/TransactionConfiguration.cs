@@ -15,10 +15,6 @@ namespace ExtremeCodeBot.Infrastructure.Configurations.WalletAggregate
             builder.HasOne(x => x.ReceiverWalletId)
                 .WithMany(x => x.Transactions)
                 .HasForeignKey("receiver_id");
-
-            builder.HasOne(x => x.SenderWalletId)
-                .WithMany(x => x.Transactions)
-                .HasForeignKey("sender_id");
         }
     }
 }
