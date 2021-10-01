@@ -8,10 +8,15 @@ namespace ExtremeCodeBot.Infrastructure.Configurations.WalletAggregate
     {
         public void Configure(EntityTypeBuilder<MoneyPool> builder)
         {
-            builder.HasKey(x => x.Id).HasName("id");
-            builder.Property(x => x.CurrencyValue).HasColumnName("currency_value");
-            builder.Property(x => x.LockTime).HasColumnName("lock_time");
-            builder.Property(x => x.UnlockTime).HasColumnName("unlock_time");
+            builder.ToTable("money_pool").HasKey(x => x.Id).HasName("id");
+
+            builder.HasOne(x => x.Pool)
+                .WithMany(x => x.MoneyPools)
+                .HasForeignKey("pool_id");
+
+            builder.Property(x => x.CurrencyValue).IsRequired().HasColumnName("currency_value");
+            builder.Property(x => x.LockTime).IsRequired().HasColumnName("lock_time");
+            builder.Property(x => x.UnlockTime).IsRequired().HasColumnName("unlock_time");
         }
     }
 }

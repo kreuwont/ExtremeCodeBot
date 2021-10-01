@@ -17,6 +17,8 @@ namespace ExtremeCodeBot.Domain.Aggregates.WalletAggregate
 
         public virtual IReadOnlyCollection<MoneyPool> MoneyPools { get; private set; }
 
+        public virtual Client Client { get; set; }
+
         public Wallet(long balance, Guid? lastTransactionId, IEnumerable<Transaction> transactions,
             IEnumerable<MoneyPool> moneyPools)
         {

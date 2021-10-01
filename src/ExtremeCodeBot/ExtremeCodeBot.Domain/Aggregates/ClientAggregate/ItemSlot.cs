@@ -13,8 +13,6 @@ namespace ExtremeCodeBot.Domain.Aggregates.ClientAggregate
 
         public virtual DateTime UsedTime { get; private set; }
 
-        public virtual Client Client { get; private set; }
-
         /// <summary>
         /// For EF
         /// </summary>

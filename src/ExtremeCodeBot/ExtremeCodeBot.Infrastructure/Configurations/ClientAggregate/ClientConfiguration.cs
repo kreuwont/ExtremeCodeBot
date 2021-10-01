@@ -8,12 +8,14 @@ namespace ExtremeCodeBot.Infrastructure.Configurations.ClientAggregate
     {
         public void Configure(EntityTypeBuilder<Client> builder)
         {
-            builder.HasKey(x => x.Id).HasName("id");
+            builder.ToTable("client").HasKey(x => x.Id).HasName("id");
             builder.Property(x => x.TelegramId).HasColumnName("telegram_id");
             builder.Property(x => x.Name).IsRequired().HasColumnName("name");
             builder.Property(x => x.IsAdmin).HasColumnName("is_admin");
 
-            builder.OwnsOne(x => x.Wallet);
+            builder.HasOne(x => x.Wallet)
+                .WithOne(x => x.Client)
+                .HasForeignKey("client_id");
 
             builder.OwnsMany(x => x.BlockHistories);
 
