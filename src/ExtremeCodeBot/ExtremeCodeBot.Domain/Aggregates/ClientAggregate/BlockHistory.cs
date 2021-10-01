@@ -8,7 +8,7 @@ namespace ExtremeCodeBot.Domain.Aggregates.ClientAggregate
         
         public virtual Client AdminClient { get; private set; }
         
-        public virtual BlockClientTypes Type { get; private set; }
+        public virtual BlockClientTypes BlockClientType { get; private set; }
         
         public virtual string Reason { get; private set; }
         
@@ -16,12 +16,12 @@ namespace ExtremeCodeBot.Domain.Aggregates.ClientAggregate
         
         public virtual DateTime? UnbanTime { get; private set; }
 
-        public BlockHistory(Client adminClient, BlockClientTypes type, string reason, DateTime banTime,
+        public BlockHistory(Client adminClient, BlockClientTypes blockClientType, string reason, DateTime banTime,
             DateTime? unbanTime)
         {
             Id = Guid.NewGuid();
             AdminClient = adminClient ?? throw new ArgumentNullException(nameof(adminClient));
-            Type = type;
+            BlockClientType = blockClientType;
             Reason = reason;
             BanTime = banTime;
             UnbanTime = unbanTime;

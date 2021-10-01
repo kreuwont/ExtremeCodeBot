@@ -2,7 +2,6 @@ using System;
 using ExtremeCodeBot.Configurations;
 using ExtremeCodeBot.Extensions;
 using ExtremeCodeBot.Infrastructure;
-using ExtremeCodeBot.Infrastructure.Helpers;
 using ExtremeCodeBot.Infrastructure.Settings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
