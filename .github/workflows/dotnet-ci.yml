@@ -2,7 +2,7 @@ name: .NET
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, dotnet-ci ]
   pull_request:
     branches: [ main ]
 
@@ -19,4 +19,4 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore
       - name: Test
-        run: dotnet test --verbosity normal    
+        run: dotnet test ${{ env.PROJECT_PATH }} --verbosity normal    
